@@ -1,62 +1,47 @@
-import fs from 'fs';
-import path from 'path';
-
-const leaderboardPath = path.join(
-  process.cwd(),
-  'leaderboard.json'
-);
+import { NextResponse } from 'next/server';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   const data = await request.json();
 
-  let leaderboard = [];
+  console.log('BATTLE DATA RECEIVED:', data);
 
-  if (fs.existsSync(leaderboardPath)) {
-    leaderboard = JSON.parse(
-      fs.readFileSync(
-        leaderboardPath,
-        'utf8'
-      )
-    );
-  }
+  const wallet = data.wallet_address;
+  const winner = data.winner;
 
-  const existing = leaderboard.find(
-    (p: any) =>
-      p.wallet_address ===
-      data.wallet_address
-  );
+  const { data: existing, error: selectError } = await supabase
+    .from('leaderboard')
+    .select('*')
+    .eq('wallet_address', wallet)
+    .single();
+
+  console.log('SELECT ERROR:', selectError);
+  console.log('EXISTING:', existing);
 
   if (existing) {
-    existing.wins +=
-      data.winner === 'player'
-        ? 1
-        : 0;
+    const { error: updateError } = await supabase
+      .from('leaderboard')
+      .update({
+        wins: existing.wins + (winner === 'player' ? 1 : 0),
+        games: existing.games + 1,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('wallet_address', wallet);
 
-    existing.games += 1;
+    console.log('UPDATE ERROR:', updateError);
   } else {
-    leaderboard.push({
-      wallet_address:
-        data.wallet_address,
+    const { error: insertError } = await supabase
+      .from('leaderboard')
+      .insert({
+        wallet_address: wallet,
+        wins: winner === 'player' ? 1 : 0,
+        games: 1,
+      });
 
-      wins:
-        data.winner === 'player'
-          ? 1
-          : 0,
-
-      games: 1,
-    });
+    console.log('INSERT ERROR:', insertError);
   }
 
-  fs.writeFileSync(
-    leaderboardPath,
-    JSON.stringify(
-      leaderboard,
-      null,
-      2
-    )
-  );
-
-  return Response.json({
+  return NextResponse.json({
     success: true,
   });
 }

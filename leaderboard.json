@@ -1,6 +1,16 @@
 [
   {
     "wallet_address": "0x52471F5787C9a1Cec55f70C718bB91e7048F89c5",
+    "wins": 2,
+    "games": 2
+  },
+  {
+    "wallet_address": "0xD1d2Ab3E9Ea2C86Db0538A3b19EF2290d6FdA317",
+    "wins": 1,
+    "games": 1
+  },
+  {
+    "wallet_address": "0x237a66577CC6654ed23DA78B6CaAA644A8e0DacF",
     "wins": 1,
     "games": 1
   }
