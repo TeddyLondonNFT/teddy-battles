@@ -9,11 +9,16 @@ export async function POST(request: Request) {
   const wallet = data.wallet_address;
   const winner = data.winner;
 
-  const { data: existing, error: selectError } = await supabase
-    .from('leaderboard')
-    .select('*')
-    .eq('wallet_address', wallet)
-    .single();
+const { data: existingRows } = await supabase
+  .from('leaderboard')
+  .select('*')
+  .eq(
+    'wallet_address',
+    data.wallet_address
+  );
+
+const existing =
+  existingRows?.[0];
 
   console.log('SELECT ERROR:', selectError);
   console.log('EXISTING:', existing);
