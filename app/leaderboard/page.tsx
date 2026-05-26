@@ -1,16 +1,13 @@
-import fs from 'fs';
-import path from 'path';
+import { supabase } from '@/lib/supabase';
 
-export default function LeaderboardPage() {
-  const leaderboardPath = path.join(process.cwd(), 'leaderboard.json');
+export const dynamic = 'force-dynamic';
 
-  let leaderboard: any[] = [];
-
-  if (fs.existsSync(leaderboardPath)) {
-    leaderboard = JSON.parse(fs.readFileSync(leaderboardPath, 'utf8'));
-  }
-
-  leaderboard.sort((a, b) => b.wins - a.wins);
+export default async function LeaderboardPage() {
+  const { data: leaderboard } = await supabase
+    .from('leaderboard')
+    .select('*')
+    .order('wins', { ascending: false })
+    .order('games', { ascending: true });
 
   return (
     <main className="min-h-screen bg-[#080812] text-white px-6 py-16">
@@ -28,7 +25,7 @@ export default function LeaderboardPage() {
         </p>
 
         <div className="border border-yellow-400/50 bg-white/5 rounded-xl overflow-hidden">
-          {leaderboard.map((player, index) => {
+          {(leaderboard ?? []).map((player, index) => {
             const winRate =
               player.games > 0
                 ? Math.round((player.wins / player.games) * 100)
