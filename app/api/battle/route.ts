@@ -20,7 +20,6 @@ const { data: existingRows } = await supabase
 const existing =
   existingRows?.[0];
 
-  console.log('SELECT ERROR:', selectError);
   console.log('EXISTING:', existing);
 
   if (existing) {
