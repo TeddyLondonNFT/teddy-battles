@@ -1,17 +1,23 @@
 'use client';
 
+import { teddyStats } from '@/lib/teddyStats';
 import { useRouter } from 'next/navigation';
 import { NavBar } from '@/components/NavBar';
 
 const mercenaries = Array.from({ length: 3 }, () => {
-  const id = Math.floor(Math.random() * 400) + 1;
+  const availableIds = Object.keys(teddyStats).map(Number);
+  const id =
+    availableIds[Math.floor(Math.random() * availableIds.length)];
+
   const padded = id.toString().padStart(3, '0');
 
-  return {
-    id: `street-${padded}`,
-    name: `Teddy #${padded}`,
-    image: `/teddies/Teddy_${padded}.png`,
-  };
+return {
+  id,
+  tokenId: id,
+  name: teddyStats[id].name,
+  image: `/teddies/Teddy_${padded}.png`,
+  stats: teddyStats[id],
+};
 });
 
 export default function StreetLeagueSelectPage() {
