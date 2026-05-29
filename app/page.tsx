@@ -1,52 +1,43 @@
 'use client';
 
 import Link from 'next/link';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { NavBar } from '@/components/NavBar';
-import { useAccount } from 'wagmi';
 
 export default function HomePage() {
-  const { isConnected } = useAccount();
-
   return (
     <main
-      className="min-h-screen flex flex-col"
-      style={{
-        background:
-          'radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0f 70%)',
-      }}
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat text-white"
+      style={{ backgroundImage: "url('/bg/landing_background.png')" }}
     >
       <NavBar />
 
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20">
-
-        <h1 className="text-6xl md:text-8xl font-bold mb-4">
-          <span className="text-yellow-400">Teddy</span>
-          <br />
-          <span className="text-white">Battles</span>
-        </h1>
-
-        <p className="text-gray-400 mb-10">
-          Connect wallet → Pick Teddy → Battle → Win NFTs
-        </p>
-
-        {!isConnected ? (
-          <ConnectButton />
-        ) : (
+      <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-24">
+        <div className="flex flex-col md:flex-row gap-4">
           <Link
-            href="/battle"
-            className="px-8 py-4 bg-yellow-400 text-black"
+            href="/street-league"
+            onMouseEnter={() => {
+              new Audio('/sounds/hover.mp3').play();
+            }}
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest rounded-xl transition-all duration-200"
           >
-            Enter Arena
+            Street League
           </Link>
-        )}
 
+          <Link
+            href="/og-league"
+            onMouseEnter={() => {
+              new Audio('/sounds/hover.mp3').play();
+            }}
+            className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200"
+          >
+            OG League
+          </Link>
+        </div>
       </section>
 
       <footer className="border-t border-white/5 py-6 text-center text-gray-600 text-xs">
         TEDDY LONDON © 2026
       </footer>
-
     </main>
   );
 }
