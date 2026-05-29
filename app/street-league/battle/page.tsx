@@ -89,13 +89,13 @@ if (battle.usedStats.includes(stat)) return;
   }, [battle]);
 
   const saveBattle = async (rounds: RoundResult[], playerWins: number, villainWins: number) => {
-    if (!battle.nft || !battle.villain || !address) return;
+    if (!battle.nft || !battle.villain) return;
     try {
       await fetch('/api/battle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          wallet_address: address,
+          wallet_address: 'street-league',
           nft_token_id: battle.nft.tokenId,
           nft_name: battle.nft.name,
           villain_id: battle.villain.id,
