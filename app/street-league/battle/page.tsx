@@ -449,8 +449,8 @@ if (typeof window !== 'undefined') {
     Battle Again
   </button>
 
-        <Link
-  href="/leaderboard"
+<Link
+  href="/street-league/leaderboard"
   onMouseEnter={() => {
     new Audio('/sounds/hover.mp3').play();
   }}
