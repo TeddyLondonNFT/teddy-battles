@@ -15,28 +15,52 @@ useEffect(() => {
 }, []);
 
   return (
-    <main
-      className="min-h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat text-white"
+<main
+  className="h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat text-white"
       style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
     >
       <NavBar />
-<img
-  src="/logo/streetleague.png"
-  className="absolute left-1/2 -translate-x-1/2 bottom-[52%] w-[44vw] min-w-[200px] max-w-[340px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:max-w-[340px]"
-/>
+<Link
+  href="/street-league"
+  onMouseEnter={() => {
+    new Audio('/sounds/hover.mp3').play();
+  }}
+  onClick={() => {
+    new Audio('/sounds/streetleague.mp3').play();
+  }}
+  className="bubble-pop absolute left-1/2 -translate-x-1/2 bottom-[58%] w-[52vw] min-w-[240px] max-w-[380px] z-20 transition-all duration-200 hover:scale-105 hover:-translate-y-1 active:scale-95 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]"
+>
+  <img
+    src="/logo/streetleague.png"
+    alt="Street League"
+    className="w-full"
+  />
+</Link>
 <img
   src="/characters/left-teddy.png"
-  className="pointer-events-none absolute left-[2%] bottom-0 w-[32vw] min-w-[220px] max-w-[520px] z-10 teddy-left-enter"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[40vw] min-w-[170px] max-w-[520px] md:min-w-[220px] z-10 teddy-left-enter"
   alt="Left Teddy"
 />
 
-<img
-  src="/logo/ogleague.png"
-  className="absolute left-1/2 -translate-x-1/2 bottom-[40%] w-[44vw] min-w-[200px] max-w-[340px] z-20 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:max-w-[340px]"
-/>
+<Link
+  href="/og-league"
+  onMouseEnter={() => {
+    new Audio('/sounds/hover.mp3').play();
+  }}
+  onClick={() => {
+    new Audio('/sounds/og.mp3').play();
+  }}
+  className="bubble-pop absolute left-1/2 -translate-x-1/2 bottom-[43%] w-[52vw] min-w-[240px] max-w-[380px] z-20 transition-all duration-200 hover:scale-105 hover:-translate-y-2 active:scale-95 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]"
+>
+  <img
+    src="/logo/ogleague.png"
+    alt="OG League"
+    className="w-full"
+  />
+</Link>
 <img
   src="/characters/right-teddy.png"
-  className="pointer-events-none absolute right-[2%] bottom-0 w-[32vw] min-w-[220px] max-w-[520px] z-10 teddy-right-enter"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[40vw] min-w-[170px] max-w-[520px] md:min-w-[220px] z-10 teddy-right-enter"
   alt="Right Teddy"
 />
 
