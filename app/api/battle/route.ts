@@ -6,7 +6,10 @@ export async function POST(request: Request) {
 
   console.log('BATTLE DATA RECEIVED:', data);
 
-  const wallet = data.wallet_address;
+  const wallet =
+  data.wallet_address === 'street-league' && data.x_handle
+    ? data.x_handle
+    : data.wallet_address;
   const winner = data.winner;
 
 const { data: existingRows } = await supabase
