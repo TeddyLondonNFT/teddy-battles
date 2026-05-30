@@ -1,23 +1,55 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { NavBar } from '@/components/NavBar';
 
 export default function HomePage() {
+
+useEffect(() => {
+  const whoosh = new Audio('/sounds/whoosh.mp3');
+
+  whoosh.volume = 0.5;
+
+  whoosh.play();
+}, []);
+
   return (
     <main
-      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: "url('/bg/landing_background.png')" }}
+      className="min-h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat text-white"
+      style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
     >
       <NavBar />
+<img
+  src="/characters/left-teddy.png"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[22vw] min-w-[500px] max-w-[1000px] z-10 teddy-left-enter"
+  alt="Left Teddy"
+/>
+
+<img
+  src="/characters/right-teddy.png"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[22vw] min-w-[500px] max-w-[1000px] z-10 teddy-right-enter"
+  alt="Right Teddy"
+/>
+
+<div className="absolute top-[1%] left-1/2 -translate-x-1/2 z-20">
+  <img
+    src="/logo/turfwars_logo.png"
+    alt="Turf Wars"
+    className="turf-logo w-[700px] max-w-[90vw] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
+  />
+</div>
 
       <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-24">
         <div className="flex flex-col md:flex-row gap-4">
           <Link
             href="/street-league"
-            onMouseEnter={() => {
-              new Audio('/sounds/hover.mp3').play();
-            }}
+ onMouseEnter={() => {
+  new Audio('/sounds/hover.mp3').play();
+}}
+onClick={() => {
+  new Audio('/sounds/whoosh.mp3').play();
+}}
             className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest rounded-xl transition-all duration-200"
           >
             Street League
@@ -25,9 +57,12 @@ export default function HomePage() {
 
           <Link
             href="/og-league"
-            onMouseEnter={() => {
-              new Audio('/sounds/hover.mp3').play();
-            }}
+onMouseEnter={() => {
+  new Audio('/sounds/hover.mp3').play();
+}}
+onClick={() => {
+  new Audio('/sounds/whoosh.mp3').play();
+}}
             className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200"
           >
             OG League
