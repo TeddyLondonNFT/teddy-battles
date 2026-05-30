@@ -17,7 +17,7 @@ const { data: existingRows } = await supabase
   .select('*')
   .eq(
     'wallet_address',
-    data.wallet_address
+    wallet
   );
 
 const existing =
