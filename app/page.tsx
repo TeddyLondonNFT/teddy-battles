@@ -21,26 +21,34 @@ useEffect(() => {
     >
       <NavBar />
 <img
+  src="/logo/streetleague.png"
+  className="absolute left-1/2 -translate-x-1/2 bottom-[52%] w-[44vw] min-w-[200px] max-w-[340px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:max-w-[340px]"
+/>
+<img
   src="/characters/left-teddy.png"
-  className="pointer-events-none absolute left-[2%] bottom-0 w-[22vw] min-w-[500px] max-w-[1000px] z-10 teddy-left-enter"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[32vw] min-w-[220px] max-w-[520px] z-10 teddy-left-enter"
   alt="Left Teddy"
 />
 
 <img
+  src="/logo/ogleague.png"
+  className="absolute left-1/2 -translate-x-1/2 bottom-[40%] w-[44vw] min-w-[200px] max-w-[340px] z-20 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:max-w-[340px]"
+/>
+<img
   src="/characters/right-teddy.png"
-  className="pointer-events-none absolute right-[2%] bottom-0 w-[22vw] min-w-[500px] max-w-[1000px] z-10 teddy-right-enter"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[32vw] min-w-[220px] max-w-[520px] z-10 teddy-right-enter"
   alt="Right Teddy"
 />
 
-<div className="absolute top-[1%] left-1/2 -translate-x-1/2 z-20">
+<div className="absolute top-[2%] left-1/2 -translate-x-1/2 z-20">
   <img
     src="/logo/turfwars_logo.png"
     alt="Turf Wars"
-    className="turf-logo w-[700px] max-w-[90vw] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
+    className="turf-logo w-[45vw] min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
   />
 </div>
 
-      <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-24">
+      <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-[14vh]">
         <div className="flex flex-col md:flex-row gap-4">
           <Link
             href="/street-league"
@@ -50,7 +58,7 @@ useEffect(() => {
 onClick={() => {
   new Audio('/sounds/whoosh.mp3').play();
 }}
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest rounded-xl transition-all duration-200"
+            className="px-10 py-5 text-lg md:text-xl bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest rounded-xl transition-all duration-200 hover:scale-105"
           >
             Street League
           </Link>
@@ -63,7 +71,7 @@ onMouseEnter={() => {
 onClick={() => {
   new Audio('/sounds/whoosh.mp3').play();
 }}
-            className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200"
+            className="px-10 py-5 text-lg md:text-xl bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200 hover:scale-105"
           >
             OG League
           </Link>
