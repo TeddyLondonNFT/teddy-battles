@@ -360,24 +360,20 @@ className={`stat-button-live flex justify-between items-center px-3 py-1.5 round
   const outcome = getBattleWinner(battle.playerWins, battle.villainWins);
 
 
- const shareText = `Teddy London - TURF WARS 
+ const shareText = 
+ 
+ `🍺 Teddy London - TURF WARS 🍺
 
+👊 Survived the streets.
+⚡ Earned Street Cred.
+🎯 Now fighting for a Teddy London Crew WL spot.
 
-Survived the streets.
+🏆 20 WL spots up for grabs this week.
 
-Earned Street Cred.
+👇 Think you can handle it?
+https://play.teddylondon.xyz/
 
-
-Now fighting for a Teddy London Crew WL spot.
-
-
-20 WL spots up for grabs this week.
-
-
-https://teddy-battles.vercel.app
-
-
-@TeddyLondon @Monx2`;
+@Monx2 @theteddyLondon`;
 
 const shareOnX = () => {
   const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
