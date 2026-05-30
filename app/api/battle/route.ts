@@ -13,12 +13,18 @@ export async function POST(request: Request) {
   const winner = data.winner;
 
 const { data: existingRows } = await supabase
-  .from('leaderboard')
+  .from(
+  data.wallet_address === 'street-league'
+    ? 'street_leaderboard'
+    : 'leaderboard'
+)
   .select('*')
-  .eq(
-    'wallet_address',
-    wallet
-  );
+.eq(
+  data.wallet_address === 'street-league'
+    ? 'x_handle'
+    : 'wallet_address',
+  wallet
+);
 
 const existing =
   existingRows?.[0];
@@ -27,23 +33,44 @@ const existing =
 
   if (existing) {
     const { error: updateError } = await supabase
-      .from('leaderboard')
+      .from(
+  data.wallet_address === 'street-league'
+    ? 'street_leaderboard'
+    : 'leaderboard'
+)
       .update({
         wins: existing.wins + (winner === 'player' ? 1 : 0),
         games: existing.games + 1,
         updated_at: new Date().toISOString(),
       })
-      .eq('wallet_address', wallet);
+      .eq(
+  data.wallet_address === 'street-league'
+    ? 'x_handle'
+    : 'wallet_address',
+  wallet
+);
 
     console.log('UPDATE ERROR:', updateError);
   } else {
     const { error: insertError } = await supabase
-      .from('leaderboard')
-      .insert({
+      .from(
+  data.wallet_address === 'street-league'
+    ? 'street_leaderboard'
+    : 'leaderboard'
+)
+.insert(
+  data.wallet_address === 'street-league'
+    ? {
+        x_handle: wallet,
+        wins: winner === 'player' ? 1 : 0,
+        games: 1,
+      }
+    : {
         wallet_address: wallet,
         wins: winner === 'player' ? 1 : 0,
         games: 1,
-      });
+      }
+);
 
     console.log('INSERT ERROR:', insertError);
   }
