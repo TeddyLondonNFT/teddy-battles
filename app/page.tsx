@@ -20,44 +20,48 @@ useEffect(() => {
       style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
     >
       <NavBar />
-<Link
-  href="/street-league"
-  onMouseEnter={() => {
-    new Audio('/sounds/hover.mp3').play();
-  }}
-  onClick={() => {
-    new Audio('/sounds/streetleague.mp3').play();
-  }}
-  className="bubble-pop absolute left-1/2 -translate-x-1/2 bottom-[58%] w-[52vw] min-w-[240px] max-w-[380px] z-20 transition-all duration-200 hover:scale-105 hover:-translate-y-1 active:scale-95 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]"
->
-  <img
-    src="/logo/streetleague.png"
-    alt="Street League"
-    className="w-full"
-  />
-</Link>
+<div className="absolute left-1/2 -translate-x-1/2 bottom-[58%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
+  <Link
+    href="/street-league"
+    onMouseEnter={() => {
+      new Audio('/sounds/hover.mp3').play();
+    }}
+    onClick={() => {
+      new Audio('/sounds/streetleague.mp3').play();
+    }}
+    className="block bubble-pop transition-all duration-200 hover:scale-105 hover:-translate-y-2 active:scale-95"
+  >
+    <img
+      src="/logo/streetleague.png"
+      alt="Street League"
+      className="w-full"
+    />
+  </Link>
+</div>
 <img
   src="/characters/left-teddy.png"
   className="pointer-events-none absolute left-[2%] bottom-0 w-[40vw] min-w-[170px] max-w-[520px] md:min-w-[220px] z-10 teddy-left-enter"
   alt="Left Teddy"
 />
 
-<Link
-  href="/og-league"
-  onMouseEnter={() => {
-    new Audio('/sounds/hover.mp3').play();
-  }}
-  onClick={() => {
-    new Audio('/sounds/og.mp3').play();
-  }}
-  className="bubble-pop absolute left-1/2 -translate-x-1/2 bottom-[43%] w-[52vw] min-w-[240px] max-w-[380px] z-20 transition-all duration-200 hover:scale-105 hover:-translate-y-2 active:scale-95 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]"
->
-  <img
-    src="/logo/ogleague.png"
-    alt="OG League"
-    className="w-full"
-  />
-</Link>
+<div className="absolute left-1/2 -translate-x-1/2 bottom-[43%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
+  <Link
+    href="/og-league"
+    onMouseEnter={() => {
+      new Audio('/sounds/hover.mp3').play();
+    }}
+    onClick={() => {
+      new Audio('/sounds/og.mp3').play();
+    }}
+    className="block bubble-pop transition-all duration-200 hover:scale-105 hover:-translate-y-2 active:scale-95"
+  >
+    <img
+      src="/logo/ogleague.png"
+      alt="OG League"
+      className="w-full"
+    />
+  </Link>
+</div>
 <img
   src="/characters/right-teddy.png"
   className="pointer-events-none absolute right-[2%] bottom-0 w-[40vw] min-w-[170px] max-w-[520px] md:min-w-[220px] z-10 teddy-right-enter"
