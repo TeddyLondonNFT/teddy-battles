@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   const data = await request.json();
-
+  console.log('X HANDLE:', data.x_handle);
   console.log('BATTLE DATA RECEIVED:', data);
 
   const wallet =

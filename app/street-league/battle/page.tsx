@@ -96,7 +96,7 @@ if (battle.usedStats.includes(stat)) return;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
   wallet_address: 'street-league',
-  x_handle: localStorage.getItem('streetLeagueHandle'),
+  x_handle: localStorage.getItem('streetLeagueHandle') || 'no-handle',
           nft_token_id: battle.nft.tokenId,
           nft_name: battle.nft.name,
           villain_id: battle.villain.id,
