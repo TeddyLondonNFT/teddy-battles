@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function StreetLeagueLeaderboardPage() {
   const { data: leaderboard } = await supabase
-    .from('street_league_scores')
+  .from('street_leaderboard')
     .select('*')
     .order('wins', { ascending: false })
     .order('games', { ascending: true });
