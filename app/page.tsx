@@ -20,7 +20,7 @@ useEffect(() => {
       style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
     >
       <NavBar />
-<div className="absolute left-1/2 -translate-x-1/2 bottom-[58%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
+<div className="absolute left-1/2 -translate-x-1/2 bottom-[62%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
   <Link
     href="/street-league"
     onMouseEnter={() => {
@@ -44,7 +44,7 @@ useEffect(() => {
   alt="Left Teddy"
 />
 
-<div className="absolute left-1/2 -translate-x-1/2 bottom-[43%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
+<div className="absolute left-1/2 -translate-x-1/2 bottom-[40%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-auto lg:right-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
   <Link
     href="/og-league"
     onMouseEnter={() => {
@@ -53,7 +53,7 @@ useEffect(() => {
     onClick={() => {
       new Audio('/sounds/og.mp3').play();
     }}
-    className="block bubble-pop transition-all duration-200 hover:scale-105 hover:-translate-y-2 active:scale-95"
+    className="block bubble-pop-delay cursor-pointer transition-all duration-200 hover:scale-110 hover:-translate-y-3 active:scale-95"
   >
     <img
       src="/logo/ogleague.png"

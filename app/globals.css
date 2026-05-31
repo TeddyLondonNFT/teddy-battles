@@ -299,22 +299,24 @@ body {
     transform: scale(0);
     opacity: 0;
   }
-
-  60% {
-    transform: scale(1.15);
+  50% {
+    transform: scale(1.2);
     opacity: 1;
   }
-
-  80% {
-    transform: scale(0.92);
+  70% {
+    transform: scale(0.9);
   }
-
+  85% {
+    transform: scale(1.05);
+  }
   100% {
     transform: scale(1);
-    opacity: 1;
   }
 }
 
 .bubble-pop {
-  animation: bubblePop 0.5s ease-out forwards;
+  animation: bubblePop 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+.bubble-pop-delay {
+  animation: bubblePop 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.2s forwards;
 }
