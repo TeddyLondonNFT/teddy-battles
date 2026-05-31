@@ -51,15 +51,15 @@ export default async function StreetLeagueLeaderboardPage() {
   <div className="relative z-20 max-w-4xl mx-auto pt-[36vh] pb-20">
 
     <div className="max-w-3xl mx-auto mb-10">
-      <div className="bg-black/95 border-2 border-blue-500/40 rounded-2xl px-8 py-5 shadow-2xl">
+      <div className="bg-black/95 border-2 border-blue-500/40 rounded-2xl px-4 md:px-8 py-4 md:py-5 shadow-2xl mx-3 md:mx-0">
 
-        <div className="text-center text-yellow-400 font-black text-3xl md:text-5xl uppercase">
-          STREET LEAGUE TABLE
-        </div>
+<div className="text-center text-yellow-400 font-black text-xl md:text-5xl uppercase whitespace-nowrap">
+  STREET LEAGUE TABLE
+</div>
 
-        <div className="text-center text-white font-bold uppercase tracking-wider mt-2">
-          Top 10 Teddy London Crew WL Spots This Week
-        </div>
+<div className="text-center text-white font-bold uppercase tracking-normal md:tracking-wider text-xs md:text-base mt-2">
+  Top 10 Teddy London Crew WL Spots This Week
+</div>
 
       </div>
     </div>
@@ -77,12 +77,12 @@ export default async function StreetLeagueLeaderboardPage() {
             return (
               <div
                 key={player.x_handle}
-                className="grid grid-cols-[60px_1fr_120px_120px] gap-4 items-center px-6 py-5 border-b border-white/10 last:border-b-0"
+                className="grid grid-cols-[40px_1fr_60px_60px] md:grid-cols-[60px_1fr_120px_120px] gap-2 md:gap-4 items-center px-3 md:px-6 py-4 md:py-5 border-b border-white/10 last:border-b-0"
               >
                 <div className="text-3xl">{medal}</div>
 
                 <div>
-                  <div className="text-lg font-bold">
+                  <div className="text-sm md:text-lg font-bold truncate">
                     @{player.x_handle}
                   </div>
                   <div className="text-xs text-gray-500 uppercase tracking-widest">
