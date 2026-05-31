@@ -228,7 +228,7 @@ className="
 <div className="text-center mt-4 mb-5">
   <div className="step-banner">
     ROUND <span className="text-yellow-400">{battle.currentRound}</span>
-    {battle.phase === 'battling' && (
+   {(battle.phase === 'battling' || battle.phase === 'round_result') && (
       <>
         <span className="mx-3 text-white">—</span>
         CHOOSE YOUR STAT
@@ -256,7 +256,7 @@ className="
 
   </div>
 )}
-            <div className="flex justify-center items-start gap-8 mb-8 flex-wrap">
+            <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-8 mb-4 md:mb-8 min-h-[430px]">
            {/* Player card */}
               <div className={`w-[250px] rounded-2xl border-4 border-blue-500 bg-gradient-to-b from-blue-950/95 to-black/95 p-4 card-float glow-blue ${
   battle.phase === 'round_result' ? 'card-shake' : ''
@@ -282,9 +282,15 @@ className="
               </div>
 
               {/* Villain card */}
-<div className={`w-[250px] rounded-2xl border-4 border-red-500 bg-gradient-to-b from-red-950/95 to-black/95 p-4 card-float glow-red ${
+<div className={`villain-card-reveal w-[250px] rounded-2xl border-4 border-red-500 bg-gradient-to-b from-red-950/95 to-black/95 p-4 card-float glow-red ${
   battle.phase === 'round_result' ? 'card-shake' : ''
 }`}>
+<img
+  key={`${battle.currentRound}-${battle.villain.id}`}
+  src="/ui/villain-card-cover.png"
+  alt="Villain hidden"
+  className="villain-cover"
+/>
                 <div className="w-full aspect-square rounded overflow-hidden mb-3">
                   <img src={battle.villain.image} alt={battle.villain.name} className="w-full h-full object-cover" />
                 </div>
@@ -310,7 +316,7 @@ className="
 
 
 {/* Stat picker */}
-{battle.phase === 'battling' && (
+{battle.phase !== 'battle_over' && (
   <div className="relative z-20 max-w-2xl mx-auto bg-black/85 border border-yellow-500/30 rounded-2xl p-2 shadow-2xl">
 
     <div className="flex items-center justify-center gap-4 mb-4">
@@ -331,7 +337,7 @@ className="
                   {(Object.entries(STAT_LABELS) as [keyof TeddyStats, string][]).map(([key, label]) => (
                     <button
                       key={key}
-                      disabled={battle.usedStats.includes(key)}
+                      disabled={battle.usedStats.includes(key) || battle.phase !== 'battling'}
                       onMouseEnter={() => {
   new Audio('/sounds/hover.mp3').play();
 }}

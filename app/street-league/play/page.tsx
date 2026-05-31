@@ -29,13 +29,13 @@ export default function StreetLeaguePlayPage() {
 >
 <img
   src="/characters/left-teddy.png"
-  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[700px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
   alt="Left Teddy"
 />
 
 <img
   src="/characters/right-teddy.png"
-  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[700px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
   alt="Right Teddy"
 />
 

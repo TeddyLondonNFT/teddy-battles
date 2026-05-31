@@ -11,13 +11,13 @@ export default function StreetLeaguePage() {
 >
 <img
   src="/characters/left-teddy.png"
-  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[600px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
   alt="Left Teddy"
 />
 
 <img
   src="/characters/right-teddy.png"
-  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[600px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
   alt="Right Teddy"
 />
 
@@ -30,7 +30,7 @@ export default function StreetLeaguePage() {
 </div>
       <NavBar />
 
-      <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-24">
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-4 -mt-[20vh] lg:mt-40">
         <div className="bg-black/80 border border-blue-500/40 rounded-2xl p-8 max-w-xl shadow-2xl">
           <h1 className="text-5xl font-black text-blue-400 mb-4">
             STREET LEAGUE
