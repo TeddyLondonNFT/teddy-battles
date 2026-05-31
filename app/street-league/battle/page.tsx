@@ -189,13 +189,16 @@ className="
   <div className="grid grid-cols-[1fr_80px_1fr] items-center gap-3 mb-3 max-w-3xl mx-auto -mt-4">
 
     {/* YOU */}
-    <div className="justify-self-end bg-blue-700 border-2 border-blue-300 rounded-xl px-5 py-2 text-white font-black shadow-xl shadow-blue-500/30 min-w-[240px]">
-      <div className="flex items-center justify-center gap-5">
-        <div className="text-xl">YOU</div>
-        <div className="text-5xl leading-none">
-          {battle.playerWins}
-        </div>
-      </div>
+    <div className="justify-self-end bg-blue-700 border-2 border-blue-300 rounded-xl px-5 py-2 text-white font-black shadow-xl shadow-blue-500/30 min-w-[130px]">
+<div className="flex flex-col items-center justify-center">
+  <div className="text-sm md:text-xl font-black">
+    YOU
+  </div>
+
+  <div className="text-4xl md:text-5xl leading-none">
+    {battle.playerWins}
+  </div>
+</div>
     </div>
 
     {/* VS */}
@@ -204,18 +207,16 @@ className="
     </div>
 
     {/* VILLAIN */}
-    <div className="justify-self-start bg-red-700 border-2 border-red-300 rounded-xl px-5 py-2 text-white font-black shadow-xl shadow-red-500/30 min-w-[240px]">
-      <div className="flex items-center gap-5">
-        <div className="text-5xl leading-none">
-          {battle.villainWins}
-        </div>
-
-<div className="text-left">
-  <div className="text-xl font-black">
+    <div className="justify-self-start bg-red-700 border-2 border-red-300 rounded-xl px-5 py-2 text-white font-black shadow-xl shadow-red-500/30 min-w-[130px]">
+<div className="flex flex-col items-center justify-center">
+  <div className="text-sm md:text-xl font-black truncate max-w-[120px]">
     {battle.villain.name.replace(/^Teddy\s+#\d+\s*/, '')}
   </div>
+
+  <div className="text-4xl md:text-5xl leading-none">
+    {battle.villainWins}
+  </div>
 </div>
-      </div>
     </div>
 
   </div>
@@ -226,7 +227,7 @@ className="
         {(battle.phase === 'battling' || battle.phase === 'round_result') && battle.nft && battle.villain && (
           <div>
 <div className="text-center mt-4 mb-5">
-  <div className="step-banner">
+  <div className="step-banner whitespace-nowrap !text-[13px] md:!text-xl !tracking-wider">
     ROUND <span className="text-yellow-400">{battle.currentRound}</span>
    {(battle.phase === 'battling' || battle.phase === 'round_result') && (
       <>
@@ -256,9 +257,9 @@ className="
 
   </div>
 )}
-            <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-8 mb-4 md:mb-8 min-h-[430px]">
+            <div className="flex flex-row justify-center items-start gap-2 md:gap-8 mb-4 md:mb-8">
            {/* Player card */}
-              <div className={`w-[250px] rounded-2xl border-4 border-blue-500 bg-gradient-to-b from-blue-950/95 to-black/95 p-4 card-float glow-blue ${
+              <div className={`w-[44vw] max-w-[250px] rounded-2xl border-4 border-blue-500 bg-gradient-to-b from-blue-950/95 to-black/95 p-4 card-float glow-blue ${
   battle.phase === 'round_result' ? 'card-shake' : ''
 }`}>
                 <div className="w-full aspect-square rounded overflow-hidden mb-3">
@@ -282,19 +283,30 @@ className="
               </div>
 
               {/* Villain card */}
-<div className={`villain-card-reveal w-[250px] rounded-2xl border-4 border-red-500 bg-gradient-to-b from-red-950/95 to-black/95 p-4 card-float glow-red ${
+<div className={`villain-card-reveal w-[44vw] max-w-[250px] rounded-2xl border-4 border-red-500 bg-gradient-to-b from-red-950/95 to-black/95 p-4 card-float glow-red ${
   battle.phase === 'round_result' ? 'card-shake' : ''
 }`}>
-<img
-  key={`${battle.currentRound}-${battle.villain.id}`}
-  src="/ui/villain-card-cover.png"
-  alt="Villain hidden"
-  className="villain-cover"
-/>
+<>
+  <img
+    key={`desktop-${battle.currentRound}-${battle.villain.id}`}
+    src="/ui/villain-card-cover.png"
+    alt="Villain hidden"
+    className="villain-cover hidden md:block"
+  />
+
+  <img
+    key={`mobile-${battle.currentRound}-${battle.villain.id}`}
+    src="/ui/villain-card-cover-m.png"
+    alt="Villain hidden"
+    className="villain-cover md:hidden"
+  />
+</>
                 <div className="w-full aspect-square rounded overflow-hidden mb-3">
                   <img src={battle.villain.image} alt={battle.villain.name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-white font-bold text-sm mb-2">{battle.villain.name}</h3>
+                <h3 className="text-white font-bold text-sm mb-2 truncate">
+  {battle.villain.name.replace(/^Teddy\s+#\d+\s*/, '')}
+</h3>
                 {(Object.entries(STAT_LABELS) as [keyof TeddyStats, string][]).map(([key, label]) => (
                   <div key={key} className={`flex justify-between text-xs py-0.5 px-1 rounded ${battle.selectedStat === key ? 'bg-red-500/20 text-red-400' : ''}`}>
                     <span className="text-gray-500">{label}</span>
@@ -319,7 +331,7 @@ className="
 {(battle.phase === 'battling' || battle.phase === 'round_result') && (
   <div className="relative z-20 max-w-2xl mx-auto bg-black/85 border border-yellow-500/30 rounded-2xl p-2 shadow-2xl">
 
-    <div className="flex items-center justify-center gap-4 mb-4">
+    <div className="hidden md:flex items-center justify-center gap-4 mb-4">
       <div className="h-[2px] w-32 bg-blue-500/60"></div>
 
       <span className="text-blue-400 text-xl">★</span>
