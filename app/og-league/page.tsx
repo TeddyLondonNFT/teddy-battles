@@ -25,16 +25,15 @@ export default function OGLeaguePage() {
             Connect your wallet and put your OG Teddy London NFTs to work. Battle, earn Street Cred, and rise to Boss status.
           </p>
 
-          {!isConnected ? (
-            <ConnectButton />
-          ) : (
-            <Link
-              href="/battle"
-              className="inline-block px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200"
-            >
-              Enter OG Arena
-            </Link>
-          )}
+<div className="relative inline-block">
+  <div className="inline-block px-8 py-4 bg-gray-700 text-gray-300 font-black uppercase tracking-widest rounded-xl opacity-70 cursor-not-allowed">
+    Enter OG Arena
+  </div>
+
+  <div className="absolute -top-3 -right-4 bg-yellow-400 text-black text-xs font-black px-3 py-1 rounded-full rotate-12 shadow-lg">
+    COMING SOON
+  </div>
+</div>
         </div>
       </section>
     </main>

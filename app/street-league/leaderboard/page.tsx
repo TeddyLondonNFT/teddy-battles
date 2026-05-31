@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase';
+import { NavBar } from '@/components/NavBar';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,21 +11,60 @@ export default async function StreetLeagueLeaderboardPage() {
     .order('games', { ascending: true });
 
   return (
-    <main className="min-h-screen bg-[#080812] text-white px-6 py-16">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-center text-blue-400 tracking-[0.35em] text-xs uppercase mb-3">
-          Teddy London
-        </p>
+<main
+  className="min-h-screen relative flex flex-col bg-cover bg-center bg-no-repeat text-white"
+  style={{
+    backgroundImage: "url('/bg/turfwars_leaderboard.png')",
+    backgroundAttachment: 'fixed',
+  }}
+>
+  <NavBar />
 
-        <h1 className="text-6xl font-black text-center text-blue-400 mb-2">
-          STREET TABLE
-        </h1>
+  <img
+    src="/characters/left-teddy.png"
+    className="pointer-events-none fixed left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
+    alt="Left Teddy"
+  />
 
-        <p className="text-center text-gray-400 mb-10">
-          20 Teddy London Crew WL spots available this week.
-        </p>
+  <img
+    src="/characters/right-teddy.png"
+    className="pointer-events-none fixed right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
+    alt="Right Teddy"
+  />
 
-        <div className="border border-blue-400/50 bg-white/5 rounded-xl overflow-hidden">
+  <div className="fixed top-[4%] left-1/2 -translate-x-1/2 z-30">
+    <img
+      src="/ui/teddylondon.png"
+      alt="Teddy London"
+      className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_10px_14px_rgba(0,0,0,1)]"
+    />
+  </div>
+
+  <div className="fixed top-[2%] left-1/2 -translate-x-1/2 z-20">
+    <img
+      src="/logo/turfwars_logo.png"
+      alt="Turf Wars"
+      className="w-[45vw] min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
+    />
+  </div>
+
+  <div className="relative z-20 max-w-4xl mx-auto pt-[36vh] pb-20">
+
+    <div className="max-w-3xl mx-auto mb-10">
+      <div className="bg-black/95 border-2 border-blue-500/40 rounded-2xl px-8 py-5 shadow-2xl">
+
+        <div className="text-center text-yellow-400 font-black text-3xl md:text-5xl uppercase">
+          STREET LEAGUE TABLE
+        </div>
+
+        <div className="text-center text-white font-bold uppercase tracking-wider mt-2">
+          Top 10 Teddy London Crew WL Spots This Week
+        </div>
+
+      </div>
+    </div>
+
+        <div className="border border-blue-400/50 bg-black/70 rounded-xl overflow-hidden">
           {(leaderboard ?? []).map((player, index) => {
             const winRate =
               player.games > 0

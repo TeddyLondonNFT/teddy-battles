@@ -19,6 +19,13 @@ useEffect(() => {
   className="h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat text-white"
       style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
     >
+        <div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
+ <img
+  src="/ui/teddylondon.png"
+  alt="Teddy London"
+  className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_4px_4px_rgba(0,0,0,0,5)]"
+/>
+</div>
       <NavBar />
 <div className="absolute left-1/2 -translate-x-1/2 bottom-[62%] w-[52vw] min-w-[240px] max-w-[380px] z-20 lg:left-[30%] lg:translate-x-0 lg:bottom-[35%] lg:w-[22vw] lg:min-w-[200px] lg:max-w-[340px]">
   <Link
