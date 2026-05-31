@@ -316,7 +316,7 @@ className="
 
 
 {/* Stat picker */}
-{battle.phase !== 'battle_over' && (
+{(battle.phase === 'battling' || battle.phase === 'round_result') && (
   <div className="relative z-20 max-w-2xl mx-auto bg-black/85 border border-yellow-500/30 rounded-2xl p-2 shadow-2xl">
 
     <div className="flex items-center justify-center gap-4 mb-4">
