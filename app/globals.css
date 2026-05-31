@@ -382,14 +382,12 @@ animation-delay: 0.8s;
   }
 }
 
-@media (max-width: 768px) {
-  .teddy-exit-left {
-    animation: teddyExitLeft 0.8s ease-in-out 1.2s forwards;
-  }
+.teddy-exit-left {
+  animation: teddyExitLeft 0.8s ease-in-out 1.2s forwards;
+}
 
-  .teddy-exit-right {
-    animation: teddyExitRight 0.8s ease-in-out 1.2s forwards;
-  }
+.teddy-exit-right {
+  animation: teddyExitRight 0.8s ease-in-out 1.2s forwards;
 }
 
 

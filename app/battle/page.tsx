@@ -99,6 +99,13 @@ if (!isConnected) {
       className="h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden"
       style={{ backgroundImage: "url('/bg/turfwars_background.jpg')" }}
     >
+      <div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
+ <img
+  src="/ui/teddylondon.png"
+  alt="Teddy London"
+  className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_10px_14px_rgba(0,0,0,1)]"
+/>
+</div>
       <NavBar />
 
       <div className="max-w-6xl mx-auto px-4 pt-0 pb-2 -mt-2">

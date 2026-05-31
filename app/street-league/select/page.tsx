@@ -39,13 +39,21 @@ export default function StreetLeagueSelectPage() {
   alt="Left Teddy"
 />
 
+
+
 <img
   src="/characters/right-teddy.png"
   className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10 teddy-exit-right"
   alt="Right Teddy"
 />
-
-<div className="absolute top-[2%] left-1/2 -translate-x-1/2 z-20">
+<div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
+ <img
+  src="/ui/teddylondon.png"
+  alt="Teddy London"
+  className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_10px_14px_rgba(0,0,0,1)]"
+/>
+</div>
+<div className="absolute top-[6%] left-1/2 -translate-x-1/2 z-20">
   <img
     src="/logo/turfwars_logo.png"
     alt="Turf Wars"
@@ -56,7 +64,7 @@ export default function StreetLeagueSelectPage() {
 
       <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-20">
 <div className="text-center mb-8">
-  <div className="step-banner whitespace-nowrap !text-[11px] md:!text-base lg:!text-xl">
+  <div className="step-banner whitespace-nowrap !text-[14px] md:!text-base lg:!text-xl">
     <span className="text-blue-400">STEP 1</span>
     <span className="mx-3 text-white">—</span>
     <span>PICK YOUR TEDDY</span>
@@ -68,7 +76,7 @@ export default function StreetLeagueSelectPage() {
 </p>
 </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
 {mercenaries.map((teddy, index) => (
   <button
     key={teddy.id}

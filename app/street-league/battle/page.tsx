@@ -137,9 +137,17 @@ if (battle.usedStats.includes(stat)) return;
       className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden"
       style={{ backgroundImage: "url('/bg/turfwars_background.jpg')" }}
     >
+  <div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
+ <img
+  src="/ui/teddylondon.png"
+  alt="Teddy London"
+  className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_4px_4px_rgba(0,0,0,0,5)]"
+/>
+</div>
       <NavBar />
       <div className="relative z-10 max-w-6xl mx-auto px-4 pt-2 pb-4">
 {battle.phase === 'select_nft' && (
+  
   <div className="flex justify-center mb-0 -mt-24">
     <img
       src="/logo/turfwars_logo.png"

@@ -28,6 +28,13 @@ export default function StreetLeaguePage() {
     className="w-[45vw] min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
   />
 </div>
+<div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
+ <img
+  src="/ui/teddylondon.png"
+  alt="Teddy London"
+  className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_10px_14px_rgba(0,0,0,1)]"
+/>
+</div>
       <NavBar />
 
       <section className="flex-1 flex flex-col items-center justify-center text-center px-4 -mt-[20vh] lg:mt-40">
