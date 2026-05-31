@@ -4,7 +4,7 @@ import { teddyStats } from '@/lib/teddyStats';
 import { useRouter } from 'next/navigation';
 import { NavBar } from '@/components/NavBar';
 
-const mercenaries = Array.from({ length: 3 }, () => {
+const mercenaries = Array.from({ length: 4 }, () => {
   const availableIds = Object.keys(teddyStats).map(Number);
   const id =
     availableIds[Math.floor(Math.random() * availableIds.length)];
@@ -35,13 +35,13 @@ export default function StreetLeagueSelectPage() {
 >
 <img
   src="/characters/left-teddy.png"
-  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute left-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10 teddy-exit-left"
   alt="Left Teddy"
 />
 
 <img
   src="/characters/right-teddy.png"
-  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
+  className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10 teddy-exit-right"
   alt="Right Teddy"
 />
 
@@ -56,19 +56,19 @@ export default function StreetLeagueSelectPage() {
 
       <section className="flex-1 flex flex-col items-center justify-end text-center px-4 pb-20">
 <div className="text-center mb-8">
-  <div className="step-banner">
+  <div className="step-banner whitespace-nowrap !text-[11px] md:!text-base lg:!text-xl">
     <span className="text-blue-400">STEP 1</span>
     <span className="mx-3 text-white">—</span>
     <span>PICK YOUR TEDDY</span>
   </div>
 
-  <p className="text-center text-l text-gray-300 mt-3">
-Different traits, different strengths.
-    Choose wisely.
-  </p>
+<p className="hidden md:block text-center text-lg text-gray-300 mt-2">
+  Different traits, different strengths.
+  Choose wisely.
+</p>
 </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 gap-3 md:gap-6">
 {mercenaries.map((teddy, index) => (
   <button
     key={teddy.id}
@@ -82,10 +82,10 @@ Different traits, different strengths.
               <img
                 src={teddy.image}
                 alt={teddy.name}
-                className="w-56 h-56 object-cover rounded-xl mb-4"
+                className="w-[34vw] h-[34vw] max-w-56 max-h-56 object-cover rounded-xl mb-3"
               />
 
-              <div className="text-2xl font-black text-white">
+              <div className="text-sm md:text-2xl font-black text-white truncate">
                 {teddy.name}
               </div>
 

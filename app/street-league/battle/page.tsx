@@ -319,7 +319,9 @@ className="
       : 'blur-sm text-gray-400'
   }`}
 >
-  {battle.villain!.stats[key]}
+  {key === 'overall'
+  ? Math.round(battle.villain!.stats[key])
+  : battle.villain!.stats[key]}
 </span>
                   </div>
                 ))}
@@ -360,11 +362,13 @@ className={`stat-button-live flex justify-between items-center px-3 py-1.5 round
     : ''
 }`}
                     >
-                      <span className="text-white font-black uppercase tracking-wide text-base">
+                      <span className="text-white font-black uppercase tracking-wide text-[11px] md:text-base">
   {label}
 </span>
-                      <span className="text-yellow-400 font-black text-3xl">
-  {battle.nft?.stats[key]}
+<span className="text-yellow-400 font-black text-2xl md:text-3xl">
+  {key === 'overall'
+    ? Math.round(battle.nft?.stats[key] ?? 0)
+    : battle.nft?.stats[key]}
 </span>
 </button>
 
