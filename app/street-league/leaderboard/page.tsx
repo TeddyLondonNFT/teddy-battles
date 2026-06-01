@@ -40,15 +40,15 @@ export default async function StreetLeagueLeaderboardPage() {
     />
   </div>
 
-  <div className="fixed top-[2%] left-1/2 -translate-x-1/2 z-20">
+  <div className="fixed top-[8%] md:top-[2%] left-1/2 -translate-x-1/2 z-20">
     <img
       src="/logo/turfwars_logo.png"
       alt="Turf Wars"
-      className="w-[45vw] min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
+      className="w-[55vw] md:w-[45vw] min-w-[180px] md:min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
     />
   </div>
 
-  <div className="relative z-20 max-w-4xl mx-auto pt-[36vh] pb-20">
+  <div className="relative z-20 max-w-4xl mx-auto pt-[18vh] md:pt-[36vh] pb-20 px-3 md:px-0">
 
     <div className="max-w-3xl mx-auto mb-10">
       <div className="bg-black/95 border-2 border-blue-500/40 rounded-2xl px-4 md:px-8 py-4 md:py-5 shadow-2xl mx-3 md:mx-0">
