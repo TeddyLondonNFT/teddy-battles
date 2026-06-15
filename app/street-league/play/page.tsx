@@ -62,7 +62,7 @@ export default function StreetLeaguePlayPage() {
           </h1>
 
           <p className="text-gray-300 mb-6">
-            Enter your X handle to join the streets.
+            Enter your X handle to join the streets. No connection required.
           </p>
 
           <input
