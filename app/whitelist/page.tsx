@@ -25,7 +25,7 @@ const historicalPlayers = [
     freeMints: 2,
     wallet: '0x2bF8cf4b2cd0168CAE6a4b4c5175355c4E477262',
   },
-  { xHandle: '@jpeghedge', freeMints: 2, wallet: '' },
+  { xHandle: '@jpeghedge', freeMints: 2, wallet: '0xa4e7918fb5f4a8c12f9513b193be1d764d5757dc' },
 
   { xHandle: '@AlwaysWinning', freeMints: 1, wallet: '' },
   {
@@ -50,8 +50,8 @@ const historicalPlayers = [
   { xHandle: '@daboyonix', freeMints: 1, wallet: '' },
   { xHandle: '@Kevinwburger', freeMints: 1, wallet: '' },
   { xHandle: '@Kiwimitchy', freeMints: 1, wallet: '' },
-  { xHandle: '@voodoonemesi', freeMints: 1, wallet: '' },
-  { xHandle: '@krespo', freeMints: 1, wallet: '' },
+  { xHandle: '@voodoonemesi', freeMints: 1, wallet: '0x56aea8FC69b39F62A8d76b6f19aa6Ce974112ABe' },
+  { xHandle: '@krespo', freeMints: 1, wallet: '0xbfBFB28754F2ae61Cef971BB702cdf8d9fbBeD73' },
 ];
 
 const TOTAL_TURF_WARS_MINTS = 50;
