@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { NavBar } from '@/components/NavBar';
+import turfBg from '@/app/whitelist/turf-bg.jpg';
 
 export default function StreetLeaguePlayPage() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function StreetLeaguePlayPage() {
   return (
     <main
       className="h-screen relative overflow-hidden flex flex-col bg-cover bg-center bg-no-repeat text-white"
-      style={{ backgroundImage: "url('/bg/landing_background.jpg')" }}
+      style={{ backgroundImage: `url(${turfBg.src})` }}
     >
       <img
         src="/characters/left-teddy.png"
@@ -46,14 +47,6 @@ export default function StreetLeaguePlayPage() {
         className="pointer-events-none absolute right-[2%] bottom-0 w-[45vw] min-w-[200px] max-w-[500px] md:min-w-[250px] z-10"
         alt="Right Teddy"
       />
-
-      <div className="absolute top-[4%] left-1/2 -translate-x-1/2 z-30">
-        <img
-          src="/ui/teddylondon.png"
-          alt="Teddy London"
-          className="h-10 md:h-14 w-auto opacity-100 drop-shadow-[0_10px_14px_rgba(0,0,0,1)]"
-        />
-      </div>
 
       <div className="absolute top-[2%] left-1/2 -translate-x-1/2 z-20">
         <img

@@ -9,7 +9,8 @@ export function NavBar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const isStreetLeague = pathname.startsWith('/street-league');
+ const isStreetLeague =
+  pathname.startsWith('/street-league') || pathname === '/whitelist';
   const isHomePage = pathname === '/';
   const isOGLeague = pathname.startsWith('/og-league');
 

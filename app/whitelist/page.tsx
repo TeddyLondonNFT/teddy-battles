@@ -4,6 +4,7 @@ import leftTeddy from './left-teddy.png';
 import rightTeddy from './right-teddy.png';
 import turfBg from './turf-bg.jpg';
 import turfWarsLogo from './turfwars-logo.png';
+import { NavBar } from '@/components/NavBar';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,23 +75,25 @@ export default async function WhitelistPage() {
   const progress =
     (historicalEarned / TOTAL_TURF_WARS_MINTS) * 100;
 
-  return (
-    <main
-      className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6 py-12 sm:py-16"
-      style={{
-        backgroundImage: `
-          linear-gradient(
-            rgba(8,8,18,0.30),
-            rgba(8,8,18,0.40)
-          ),
-          url(${turfBg.src})
-        `,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
-    >
-      {/* LEFT TEDDY */}
+return (
+  <main
+    className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6 py-12 sm:py-16"
+    style={{
+      backgroundImage: `
+        linear-gradient(
+          rgba(8,8,18,0.30),
+          rgba(8,8,18,0.40)
+        ),
+        url(${turfBg.src})
+      `,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+    }}
+  >
+    <NavBar />
+
+    {/* LEFT TEDDY */}
       <img
         src={leftTeddy.src}
         alt=""
