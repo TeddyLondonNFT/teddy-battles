@@ -3,6 +3,7 @@
 import { teddyStats } from '@/lib/teddyStats';
 import { useRouter } from 'next/navigation';
 import { NavBar } from '@/components/NavBar';
+import turfWarsLogo from '@/app/whitelist/turfwars-logo.png';
 
 const mercenaries = Array.from({ length: 4 }, () => {
   const availableIds = Object.keys(teddyStats).map(Number);
@@ -55,7 +56,7 @@ export default function StreetLeagueSelectPage() {
 </div>
 <div className="absolute top-[6%] left-1/2 -translate-x-1/2 z-20">
   <img
-    src="/logo/turfwars_logo.png"
+    src={turfWarsLogo.src}
     alt="Turf Wars"
     className="w-[45vw] min-w-[280px] max-w-[700px] drop-shadow-[0_8px_20px_rgba(0,0,0,0.8)]"
   />
