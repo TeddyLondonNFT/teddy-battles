@@ -481,14 +481,14 @@ if (typeof window !== 'undefined') {
   </button>
 
 <Link
-  href="/street-league/leaderboard"
+  href="/whitelist"
   onMouseEnter={() => {
     new Audio('/sounds/hover.mp3').play();
   }}
-          className="bg-[#111111]/95 border border-white/20 hover:border-white/60 text-white font-black uppercase tracking-widest text-xl px-10 py-5 rounded-xl shadow-xl transition-all duration-200 hover:bg-[#1b1b1b]"
-        >
-          View Leaderboard
-        </Link>
+  className="bg-[#111111]/95 border border-white/20 hover:border-white/60 text-white font-black uppercase tracking-widest text-xl px-10 py-5 rounded-xl shadow-xl transition-all duration-200 hover:bg-[#1b1b1b]"
+>
+  View Whitelist
+</Link>
       </div>
     </div>
   );
