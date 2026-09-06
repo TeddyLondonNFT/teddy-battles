@@ -77,7 +77,7 @@ export default async function WhitelistPage() {
 
 return (
   <main
-    className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6 py-12 sm:py-16"
+    className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6"
     style={{
       backgroundImage: `
         linear-gradient(
@@ -130,7 +130,7 @@ return (
       />
 
       {/* CONTENT */}
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto pt-12 sm:pt-16">
 <div className="flex justify-center mb-3">
   <img
     src={turfWarsLogo.src}
