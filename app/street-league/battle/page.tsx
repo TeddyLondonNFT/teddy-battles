@@ -94,10 +94,11 @@ if (battle.usedStats.includes(stat)) return;
       await fetch('/api/battle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-  wallet_address: 'street-league',
+body: JSON.stringify({
+  league: 'street-league',
+  wallet_address: localStorage.getItem('streetLeagueWallet') || '',
   x_handle: localStorage.getItem('streetLeagueHandle') || 'no-handle',
-          nft_token_id: battle.nft.tokenId,
+  nft_token_id: battle.nft.tokenId,
           nft_name: battle.nft.name,
           villain_id: battle.villain.id,
           villain_name: battle.villain.name,

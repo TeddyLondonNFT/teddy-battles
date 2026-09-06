@@ -3,76 +3,145 @@ import { supabase } from '@/lib/supabase';
 
 export async function POST(request: Request) {
   const data = await request.json();
-  console.log('X HANDLE:', data.x_handle);
+
   console.log('BATTLE DATA RECEIVED:', data);
 
-  const wallet =
-  data.wallet_address === 'street-league' && data.x_handle
-    ? data.x_handle
-    : data.wallet_address;
   const winner = data.winner;
+  const isStreetLeague = data.league === 'street-league';
 
-const { data: existingRows } = await supabase
-  .from(
-  data.wallet_address === 'street-league'
-    ? 'street_leaderboard'
-    : 'leaderboard'
-)
-  .select('*')
-.eq(
-  data.wallet_address === 'street-league'
-    ? 'x_handle'
-    : 'wallet_address',
-  wallet
-);
+  if (isStreetLeague) {
+    const xHandle = data.x_handle;
+    const walletAddress = data.wallet_address || null;
 
-const existing =
-  existingRows?.[0];
+    if (!xHandle) {
+      return NextResponse.json(
+        { success: false, error: 'Missing X handle' },
+        { status: 400 }
+      );
+    }
 
-  console.log('EXISTING:', existing);
+    const { data: existingRows, error: lookupError } = await supabase
+      .from('street_leaderboard')
+      .select('*')
+      .eq('x_handle', xHandle);
+
+    if (lookupError) {
+      console.error('LOOKUP ERROR:', lookupError);
+
+      return NextResponse.json(
+        { success: false, error: 'Leaderboard lookup failed' },
+        { status: 500 }
+      );
+    }
+
+    const existing = existingRows?.[0];
+
+    if (existing) {
+      const { error: updateError } = await supabase
+        .from('street_leaderboard')
+        .update({
+          wallet_address: walletAddress || existing.wallet_address,
+          wins: existing.wins + (winner === 'player' ? 1 : 0),
+          games: existing.games + 1,
+          updated_at: new Date().toISOString(),
+        })
+        .eq('x_handle', xHandle);
+
+      if (updateError) {
+        console.error('UPDATE ERROR:', updateError);
+
+        return NextResponse.json(
+          { success: false, error: 'Leaderboard update failed' },
+          { status: 500 }
+        );
+      }
+    } else {
+      const { error: insertError } = await supabase
+        .from('street_leaderboard')
+        .insert({
+          x_handle: xHandle,
+          wallet_address: walletAddress,
+          wins: winner === 'player' ? 1 : 0,
+          games: 1,
+          updated_at: new Date().toISOString(),
+        });
+
+      if (insertError) {
+        console.error('INSERT ERROR:', insertError);
+
+        return NextResponse.json(
+          { success: false, error: 'Leaderboard insert failed' },
+          { status: 500 }
+        );
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+    });
+  }
+
+  const wallet = data.wallet_address;
+
+  if (!wallet) {
+    return NextResponse.json(
+      { success: false, error: 'Missing wallet address' },
+      { status: 400 }
+    );
+  }
+
+  const { data: existingRows, error: lookupError } = await supabase
+    .from('leaderboard')
+    .select('*')
+    .eq('wallet_address', wallet);
+
+  if (lookupError) {
+    console.error('LOOKUP ERROR:', lookupError);
+
+    return NextResponse.json(
+      { success: false, error: 'Leaderboard lookup failed' },
+      { status: 500 }
+    );
+  }
+
+  const existing = existingRows?.[0];
 
   if (existing) {
     const { error: updateError } = await supabase
-      .from(
-  data.wallet_address === 'street-league'
-    ? 'street_leaderboard'
-    : 'leaderboard'
-)
+      .from('leaderboard')
       .update({
         wins: existing.wins + (winner === 'player' ? 1 : 0),
         games: existing.games + 1,
         updated_at: new Date().toISOString(),
       })
-      .eq(
-  data.wallet_address === 'street-league'
-    ? 'x_handle'
-    : 'wallet_address',
-  wallet
-);
+      .eq('wallet_address', wallet);
 
-    console.log('UPDATE ERROR:', updateError);
+    if (updateError) {
+      console.error('UPDATE ERROR:', updateError);
+
+      return NextResponse.json(
+        { success: false, error: 'Leaderboard update failed' },
+        { status: 500 }
+      );
+    }
   } else {
     const { error: insertError } = await supabase
-      .from(
-  data.wallet_address === 'street-league'
-    ? 'street_leaderboard'
-    : 'leaderboard'
-)
-.insert(
-  data.wallet_address === 'street-league'
-    ? {
-        x_handle: wallet,
-        wins: winner === 'player' ? 1 : 0,
-        games: 1,
-      }
-    : {
+      .from('leaderboard')
+      .insert({
         wallet_address: wallet,
         wins: winner === 'player' ? 1 : 0,
         games: 1,
-      }
-);
+        updated_at: new Date().toISOString(),
+      });
 
-    console.log('INSERT ERROR:', insertError);
+    if (insertError) {
+      console.error('INSERT ERROR:', insertError);
+
+      return NextResponse.json(
+        { success: false, error: 'Leaderboard insert failed' },
+        { status: 500 }
+      );
+    }
   }
 
   return NextResponse.json({
