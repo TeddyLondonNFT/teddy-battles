@@ -20,7 +20,7 @@ export function NavBar() {
       {/* Left side */}
       <div className="flex items-center gap-3">
         <Link
-          href="/"
+          href="https://play.teddylondon.xyz/street-league/play"
           className="font-black text-xl tracking-wider text-yellow-400 hover:text-white transition-colors"
         >
           HOME
@@ -44,10 +44,10 @@ export function NavBar() {
               <span className="font-black text-xl text-yellow-400">|</span>
 
               <Link
-                href="/street-league/leaderboard"
+                href="https://play.teddylondon.xyz/whitelist"
                 className="font-black text-xl tracking-wider text-yellow-400 hover:text-white transition-colors"
               >
-                LEADERBOARD
+                WHITELIST LEADERBOARD
               </Link>
             </>
           )}
