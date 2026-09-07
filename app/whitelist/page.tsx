@@ -9,7 +9,7 @@ import { NavBar } from '@/components/NavBar';
 export const dynamic = 'force-dynamic';
 
 const historicalPlayers = [
-  { xHandle: '@Lorex', freeMints: 3, wallet: '' },
+  { xHandle: '@Lorex', freeMints: 3, wallet: '0x8ed4700d225c2c445bbe1376b7e98492bdfa25aa' },
   {
     xHandle: '@ReiReiLoveYJW',
     freeMints: 3,
@@ -45,7 +45,7 @@ const historicalPlayers = [
   },
   { xHandle: '@no-handle', freeMints: 1, wallet: '' },
   { xHandle: '@yungartist', freeMints: 1, wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718' },
-  { xHandle: '@Joshstuner', freeMints: 1, wallet: '' },
+  { xHandle: '@Joshstuner', freeMints: 1, wallet: '0xc7115b6C7A4278E2709336A8816b183D01e33D8A' },
   { xHandle: '@yung', freeMints: 1, wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718' },
   { xHandle: '@daboyonix', freeMints: 1, wallet: '' },
   { xHandle: '@Kevinwburger', freeMints: 1, wallet: '' },
