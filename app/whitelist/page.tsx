@@ -5,11 +5,16 @@ import rightTeddy from './right-teddy.png';
 import turfBg from './turf-bg.jpg';
 import turfWarsLogo from './turfwars-logo.png';
 import { NavBar } from '@/components/NavBar';
+import Countdown from './Countdown';
 
 export const dynamic = 'force-dynamic';
 
 const historicalPlayers = [
-  { xHandle: '@Lorex', freeMints: 3, wallet: '0x8ed4700d225c2c445bbe1376b7e98492bdfa25aa' },
+  {
+    xHandle: '@Lorex',
+    freeMints: 3,
+    wallet: '0x8ed4700d225c2c445bbe1376b7e98492bdfa25aa',
+  },
   {
     xHandle: '@ReiReiLoveYJW',
     freeMints: 3,
@@ -25,33 +30,96 @@ const historicalPlayers = [
     freeMints: 2,
     wallet: '0x2bF8cf4b2cd0168CAE6a4b4c5175355c4E477262',
   },
-  { xHandle: '@jpeghedge', freeMints: 2, wallet: '0xa4e7918fb5f4a8c12f9513b193be1d764d5757dc' },
-
-  { xHandle: '@AlwaysWinning', freeMints: 1, wallet: '' },
+  {
+    xHandle: '@jpeghedge',
+    freeMints: 2,
+    wallet: '0xa4e7918fb5f4a8c12f9513b193be1d764d5757dc',
+  },
+  {
+    xHandle: '@AlwaysWinning',
+    freeMints: 1,
+    wallet: '',
+  },
   {
     xHandle: '@A_R_C_NFTs',
     freeMints: 1,
     wallet: '0x5933144b5f9f5e71fef149c7f60e8229906a1f26',
   },
-  { xHandle: '@cann0nnft', freeMints: 1, wallet: '' },
-  { xHandle: '@dgkacid', freeMints: 1, wallet: '' },
-  { xHandle: '@Tjay_sznn', freeMints: 1, wallet: '0xbfBFB28754F2ae61Cef971BB702cdf8d9fbBeD73' },
-  { xHandle: '@kadirbykl616161', freeMints: 1, wallet: '' },
-  { xHandle: '@eastmahnn', freeMints: 1, wallet: '' },
+  {
+    xHandle: '@cann0nnft',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@dgkacid',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@Tjay_sznn',
+    freeMints: 1,
+    wallet: '0xbfBFB28754F2ae61Cef971BB702cdf8d9fbBeD73',
+  },
+  {
+    xHandle: '@kadirbykl616161',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@eastmahnn',
+    freeMints: 1,
+    wallet: '',
+  },
   {
     xHandle: '@milesmuso',
     freeMints: 1,
     wallet: '0xf2e4a05cBae83fb3173BECEe7a31686e8A6ae3Ce',
   },
-  { xHandle: '@no-handle', freeMints: 1, wallet: '' },
-  { xHandle: '@yungartist', freeMints: 1, wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718' },
-  { xHandle: '@Joshstuner', freeMints: 1, wallet: '0xc7115b6C7A4278E2709336A8816b183D01e33D8A' },
-  { xHandle: '@yung', freeMints: 1, wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718' },
-  { xHandle: '@daboyonix', freeMints: 1, wallet: '' },
-  { xHandle: '@Kevinwburger', freeMints: 1, wallet: '' },
-  { xHandle: '@Kiwimitchy', freeMints: 1, wallet: '' },
-  { xHandle: '@voodoonemesi', freeMints: 1, wallet: '0x56aea8FC69b39F62A8d76b6f19aa6Ce974112ABe' },
-  { xHandle: '@krespo', freeMints: 1, wallet: '0xbfBFB28754F2ae61Cef971BB702cdf8d9fbBeD73' },
+  {
+    xHandle: '@no-handle',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@yungartist',
+    freeMints: 1,
+    wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718',
+  },
+  {
+    xHandle: '@Joshstuner',
+    freeMints: 1,
+    wallet: '0xc7115b6C7A4278E2709336A8816b183D01e33D8A',
+  },
+  {
+    xHandle: '@yung',
+    freeMints: 1,
+    wallet: '0xa89d38997c31383ca1d7b2a496ead1a1444fb718',
+  },
+  {
+    xHandle: '@daboyonix',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@Kevinwburger',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@Kiwimitchy',
+    freeMints: 1,
+    wallet: '',
+  },
+  {
+    xHandle: '@voodoonemesi',
+    freeMints: 1,
+    wallet: '0x56aea8FC69b39F62A8d76b6f19aa6Ce974112ABe',
+  },
+  {
+    xHandle: '@krespo',
+    freeMints: 1,
+    wallet: '0xbfBFB28754F2ae61Cef971BB702cdf8d9fbBeD73',
+  },
 ];
 
 const TOTAL_TURF_WARS_MINTS = 50;
@@ -75,25 +143,25 @@ export default async function WhitelistPage() {
   const progress =
     (historicalEarned / TOTAL_TURF_WARS_MINTS) * 100;
 
-return (
-  <main
-    className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6"
-    style={{
-      backgroundImage: `
-        linear-gradient(
-          rgba(8,8,18,0.30),
-          rgba(8,8,18,0.40)
-        ),
-        url(${turfBg.src})
-      `,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
-    }}
-  >
-    <NavBar />
+  return (
+    <main
+      className="relative min-h-screen overflow-hidden text-white px-4 sm:px-6"
+      style={{
+        backgroundImage: `
+          linear-gradient(
+            rgba(8,8,18,0.30),
+            rgba(8,8,18,0.40)
+          ),
+          url(${turfBg.src})
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <NavBar />
 
-    {/* LEFT TEDDY */}
+      {/* LEFT TEDDY */}
       <img
         src={leftTeddy.src}
         alt=""
@@ -131,21 +199,59 @@ return (
 
       {/* CONTENT */}
       <div className="relative z-10 max-w-5xl mx-auto pt-12 sm:pt-16">
-<div className="flex justify-center mb-3">
-  <img
-    src={turfWarsLogo.src}
-    alt="Teddy London Turf Wars"
-    className="w-[680px] max-w-[92vw] object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.55)]"
-  />
+
+        {/* TURF WARS LOGO */}
+        <div className="flex justify-center mb-3">
+          <img
+            src={turfWarsLogo.src}
+            alt="Teddy London Turf Wars"
+            className="w-[680px] max-w-[92vw] object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.55)]"
+          />
+        </div>
+
+        <p className="text-center text-gray-200 mb-8 text-sm sm:text-base">
+          The Crew — Free Mint Allocation
+        </p>
+{/* FREE MINT COUNTDOWN */}
+<div
+  className="
+    max-w-xl
+    mx-auto
+    mb-8
+    border
+    border-yellow-400/40
+    bg-black/70
+    backdrop-blur-md
+    rounded-xl
+    px-5
+    py-4
+    shadow-[0_0_25px_rgba(250,204,21,0.12)]
+  "
+>
+  <Countdown />
 </div>
-
-<p className="text-center text-gray-200 mb-8 text-sm sm:text-base">
-  The Crew — Free Mint Allocation
-</p>
-
         {/* TOTALS */}
         <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-6">
-          <div className="border border-yellow-400/50 bg-black/60 backdrop-blur-sm rounded-xl p-5 text-center">
+
+          {/* 29 LOCKED */}
+          <div className="relative border border-yellow-400/50 bg-black/60 backdrop-blur-sm rounded-xl p-5 text-center">
+
+            <img
+              src="/logo/padlock.png"
+              alt="Locked"
+              className="
+                absolute
+                -left-8
+                -top-8
+                w-20
+                sm:w-24
+                rotate-[-10deg]
+                drop-shadow-[0_6px_12px_rgba(0,0,0,0.7)]
+                pointer-events-none
+                select-none
+              "
+            />
+
             <div className="text-yellow-400 text-4xl sm:text-5xl font-black">
               {historicalEarned}
             </div>
@@ -155,14 +261,15 @@ return (
             </div>
           </div>
 
+          {/* 21 UP FOR GRABS */}
           <div className="border border-yellow-400/50 bg-black/60 backdrop-blur-sm rounded-xl p-5 text-center">
-            <div className="text-white text-4xl sm:text-5xl font-black">
+            <div className="text-green-400 text-4xl sm:text-5xl font-black drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]">
               {LIVE_STREET_LEAGUE_SPOTS}
             </div>
 
-            <div className="text-xs text-gray-400 uppercase tracking-widest mt-1">
-              Up for Grabs!
-            </div>
+<div className="text-sm sm:text-base text-green-400 font-black uppercase tracking-widest mt-1 drop-shadow-[0_0_8px_rgba(74,222,128,0.9)]">
+  Free Mints
+</div>
           </div>
         </div>
 
@@ -184,106 +291,6 @@ return (
           </p>
         </div>
 
-{/* HISTORICAL TABLE */}
-<div className="max-w-3xl mx-auto border border-yellow-400/50 bg-black/80 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl">
-
-  {/* HISTORICAL TITLE */}
-  <div className="text-center px-6 py-7 border-b border-yellow-400/30 bg-black/50">
-    <p className="text-yellow-400 tracking-[0.25em] text-xs uppercase mb-2">
-      Original Turf Wars
-    </p>
-
-    <h2 className="text-3xl sm:text-4xl font-black text-white">
-      29 FREE MINTS LOCKED
-    </h2>
-
-    <p className="text-gray-300 mt-2">
-      These allocations were already earned and cannot change.
-    </p>
-  </div>
-          <div className="hidden sm:grid grid-cols-[1fr_140px_180px] gap-4 px-6 py-4 border-b border-white/10 text-xs text-gray-400 uppercase tracking-widest">
-            <div>Turf Warrior</div>
-
-            <div className="text-right">
-              Free Crew
-            </div>
-
-            <div className="text-right">
-              Wallet Status
-            </div>
-          </div>
-
-          {historicalPlayers.map((player) => {
-            const walletConfirmed = Boolean(player.wallet);
-
-            return (
-              <div
-                key={player.xHandle}
-                className="
-                  grid
-                  grid-cols-[1fr_auto]
-                  sm:grid-cols-[1fr_140px_180px]
-                  gap-4
-                  items-center
-                  px-5
-                  sm:px-6
-                  py-5
-                  border-b
-                  border-white/10
-                  last:border-b-0
-                "
-              >
-                <div>
-                  <div className="text-lg font-bold">
-                    {player.xHandle}
-                  </div>
-
-                  <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">
-                    Original Turf Wars
-                  </div>
-                </div>
-
-                <div className="text-right">
-                  <div className="text-yellow-400 text-2xl font-black">
-                    ×{player.freeMints}
-                  </div>
-
-                  <div className="text-xs text-gray-500 uppercase">
-                    Free Mint
-                    {player.freeMints === 1 ? '' : 's'}
-                  </div>
-                </div>
-
-                <div className="col-span-2 sm:col-span-1 sm:text-right">
-                  {walletConfirmed ? (
-                    <>
-                      <div className="text-green-400 font-bold">
-                        ✓ Confirmed
-                      </div>
-
-                      <div className="text-xs text-gray-500 mt-1">
-                        Wallet received
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-yellow-400 font-bold">
-                        Wallet Required
-                      </div>
-
-                      <div className="text-xs text-gray-500 mt-1">
-                        Reply to the Turf Wars roll call
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-
-
         {/* SUPABASE ERROR */}
         {error && (
           <div className="max-w-3xl mx-auto mb-5 border border-red-500/50 bg-red-950/60 rounded-xl p-5 text-center">
@@ -293,25 +300,30 @@ return (
           </div>
         )}
 
-{/* LIVE TABLE */}
-{!error && (
-  <div className="max-w-3xl mx-auto mt-16 border border-blue-400/50 bg-black/80 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl">
+        {/* ====================================================== */}
+        {/* LIVE STREET LEAGUE - FIRST */}
+        {/* ====================================================== */}
 
-    {/* LIVE STREET LEAGUE TITLE */}
-    <div className="text-center px-6 py-7 border-b border-blue-400/30 bg-black/50">
-      <p className="text-blue-400 tracking-[0.25em] text-xs uppercase mb-2">
-        Live Street League
-      </p>
+        {!error && (
+          <div className="max-w-3xl mx-auto border border-blue-400/50 bg-black/80 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl">
 
-      <h2 className="text-3xl sm:text-4xl font-black text-white">
-        CURRENT TOP 21
-      </h2>
+            {/* LIVE TITLE */}
+            <div className="text-center px-6 py-7 border-b border-blue-400/30 bg-black/50">
+              <p className="text-blue-400 tracking-[0.25em] text-xs uppercase mb-2">
+                Live Street League
+              </p>
 
-      <p className="text-gray-300 mt-2 max-w-2xl mx-auto">
-        These are the current holders of the remaining free Crew mint
-        spots. Positions remain live until Turf Wars closes.
-      </p>
-    </div>
+              <h2 className="text-3xl sm:text-4xl font-black text-white">
+                CURRENT TOP 21
+              </h2>
+
+              <p className="text-gray-300 mt-2 max-w-2xl mx-auto">
+                These are the current holders of the remaining free Crew mint
+                spots. Positions remain live until Turf Wars closes.
+              </p>
+            </div>
+
+            {/* LIVE TABLE HEADINGS */}
             <div className="hidden sm:grid grid-cols-[70px_1fr_100px_100px_160px] gap-3 px-5 py-4 border-b border-white/10 text-xs text-gray-400 uppercase tracking-widest">
               <div>Rank</div>
               <div>Turf Warrior</div>
@@ -320,6 +332,7 @@ return (
               <div className="text-right">Wallet</div>
             </div>
 
+            {/* LIVE PLAYERS */}
             {currentQualifiers.length === 0 ? (
               <div className="px-6 py-10 text-center text-gray-400">
                 No Street League results yet.
@@ -353,10 +366,12 @@ return (
                       last:border-b-0
                     "
                   >
+                    {/* RANK */}
                     <div className="text-xl font-black">
                       {medal}
                     </div>
 
+                    {/* PLAYER */}
                     <div>
                       <div className="text-lg font-bold">
                         @{player.x_handle}
@@ -367,6 +382,7 @@ return (
                       </div>
                     </div>
 
+                    {/* WINS */}
                     <div className="text-right">
                       <div className="text-blue-400 text-2xl font-black">
                         {player.wins}
@@ -377,6 +393,7 @@ return (
                       </div>
                     </div>
 
+                    {/* GAMES */}
                     <div className="col-start-2 sm:col-start-auto text-left sm:text-right">
                       <div className="text-white font-bold">
                         {player.games}
@@ -387,6 +404,7 @@ return (
                       </div>
                     </div>
 
+                    {/* WALLET */}
                     <div className="col-start-3 sm:col-start-auto text-right">
                       {walletConfirmed ? (
                         <>
@@ -417,6 +435,135 @@ return (
           </div>
         )}
 
+        {/* ====================================================== */}
+        {/* ORIGINAL TURF WARS - LOCKED - SECOND */}
+        {/* ====================================================== */}
+
+        <div className="max-w-3xl mx-auto mt-16 border border-yellow-400/50 bg-black/80 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl">
+
+          {/* LOCKED TITLE */}
+          <div className="relative text-center px-6 py-7 border-b border-yellow-400/30 bg-black/50">
+
+            {/* PADLOCK */}
+            <img
+              src="/logo/padlock.png"
+              alt="Locked"
+              className="
+                hidden
+                sm:block
+                absolute
+                left-5
+                top-1/2
+                -translate-y-1/2
+                w-24
+                rotate-[-8deg]
+                drop-shadow-[0_8px_12px_rgba(0,0,0,0.7)]
+                pointer-events-none
+                select-none
+              "
+            />
+
+            <p className="text-yellow-400 tracking-[0.25em] text-xs uppercase mb-2">
+              Original Turf Wars
+            </p>
+
+            <h2 className="text-3xl sm:text-4xl font-black text-white">
+              29 FREE MINTS LOCKED
+            </h2>
+
+            <p className="text-gray-300 mt-2">
+              These allocations were already earned and cannot change.
+            </p>
+          </div>
+
+          {/* LOCKED TABLE HEADINGS */}
+          <div className="hidden sm:grid grid-cols-[1fr_140px_180px] gap-4 px-6 py-4 border-b border-white/10 text-xs text-gray-400 uppercase tracking-widest">
+            <div>
+              Turf Warrior
+            </div>
+
+            <div className="text-right">
+              Free Crew
+            </div>
+
+            <div className="text-right">
+              Wallet Status
+            </div>
+          </div>
+
+          {/* LOCKED PLAYERS */}
+          {historicalPlayers.map((player) => {
+            const walletConfirmed = Boolean(player.wallet);
+
+            return (
+              <div
+                key={player.xHandle}
+                className="
+                  grid
+                  grid-cols-[1fr_auto]
+                  sm:grid-cols-[1fr_140px_180px]
+                  gap-4
+                  items-center
+                  px-5
+                  sm:px-6
+                  py-5
+                  border-b
+                  border-white/10
+                  last:border-b-0
+                "
+              >
+                {/* PLAYER */}
+                <div>
+                  <div className="text-lg font-bold">
+                    {player.xHandle}
+                  </div>
+
+                  <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">
+                    Original Turf Wars
+                  </div>
+                </div>
+
+                {/* FREE MINTS */}
+                <div className="text-right">
+                  <div className="text-yellow-400 text-2xl font-black">
+                    ×{player.freeMints}
+                  </div>
+
+                  <div className="text-xs text-gray-500 uppercase">
+                    Free Mint
+                    {player.freeMints === 1 ? '' : 's'}
+                  </div>
+                </div>
+
+                {/* WALLET STATUS */}
+                <div className="col-span-2 sm:col-span-1 sm:text-right">
+                  {walletConfirmed ? (
+                    <>
+                      <div className="text-green-400 font-bold">
+                        ✓ Confirmed
+                      </div>
+
+                      <div className="text-xs text-gray-500 mt-1">
+                        Wallet received
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-yellow-400 font-bold">
+                        Wallet Required
+                      </div>
+
+                      <div className="text-xs text-gray-500 mt-1">
+                        Reply to the Turf Wars roll call
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         {/* FOOTER */}
         <div className="text-center mt-10 border border-yellow-400/40 bg-black/60 backdrop-blur-sm rounded-xl p-6">
           <p className="text-yellow-400 font-black text-2xl sm:text-3xl">
@@ -432,6 +579,7 @@ return (
         <p className="text-center text-xs text-gray-400 mt-8 mb-8">
           Street League positions update automatically as battles are recorded.
         </p>
+
       </div>
     </main>
   );
