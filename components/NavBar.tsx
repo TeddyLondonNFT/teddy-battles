@@ -97,7 +97,7 @@ export function NavBar() {
 
             {isStreetLeague && (
               <Link
-                href="/street-league/leaderboard"
+                href="/whitelist"
                 className="font-black text-yellow-400"
               >
                 LEADERBOARD
